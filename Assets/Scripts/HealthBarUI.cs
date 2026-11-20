@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,16 +9,21 @@ public class HealthBarUI : MonoBehaviour
 
     void OnEnable()
     {
-        health.Damaged += OnDamaged;
+        if (health != null)
+            health.Damaged += OnDamaged;
     }
 
     void OnDisable()
     {
-        health.Damaged -= OnDamaged;
+        if (health != null)
+            health.Damaged -= OnDamaged;
     }
 
     void OnDamaged(int currentHealth, int maxHealth)
     {
-        healthBar.fillAmount = (float)currentHealth / maxHealth;
+        if (healthBar != null && maxHealth > 0)
+        {
+            healthBar.fillAmount = (float)currentHealth / maxHealth;
+        }
     }
 }
