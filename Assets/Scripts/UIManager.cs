@@ -42,7 +42,10 @@ public class UIManager : MonoBehaviour
         }
 
         if (current != null)
+        {
             current.Show(true);
+            HandleScreenAudio(current.gameObject.name, true);
+        }
     }
 
     public void Open(UIScreen next)
@@ -55,15 +58,37 @@ public class UIManager : MonoBehaviour
 
         current = next;
         next.Show(true);
+
+        if (AudioManager.Instance != null)
+        {
+            if (next.gameObject.name == "Screen_Pause")
+                AudioManager.Instance.PlayPause();
+            else
+                AudioManager.Instance.PlayPanelOpen();
+        }
+
+        HandleScreenAudio(next.gameObject.name, true);
     }
 
     public void Back()
     {
         if (history.Count == 0) return;
 
+        string closingName = current.gameObject.name;
+
         current.Hide(false);
         current = history.Pop();
         current.Show(false);
+
+        if (AudioManager.Instance != null)
+        {
+            if (closingName == "Screen_Pause")
+                AudioManager.Instance.PlayResume();
+            else
+                AudioManager.Instance.PlayPanelClose();
+        }
+
+        HandleScreenAudio(current.gameObject.name, false);
     }
 
     public void OpenAndClearHistory(UIScreen next)
@@ -75,5 +100,34 @@ public class UIManager : MonoBehaviour
 
         current = next;
         current.Show(true);
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayPanelOpen();
+
+        HandleScreenAudio(next.gameObject.name, true);
+    }
+
+    void HandleScreenAudio(string screenName, bool isOpening)
+    {
+        if (AudioManager.Instance == null) return;
+
+        if (screenName == "Screen_HUD")
+        {
+            AudioManager.Instance.PlayGameplayMusic();
+        }
+        else if (screenName == "Screen_MainMenu")
+        {
+            AudioManager.Instance.PlayMenuMusic();
+        }
+        else if (screenName == "Screen_Victory")
+        {
+            AudioManager.Instance.PlayResultMusic();
+            if (isOpening) AudioManager.Instance.PlayWin();
+        }
+        else if (screenName == "Screen_GameOver")
+        {
+            AudioManager.Instance.PlayResultMusic();
+            if (isOpening) AudioManager.Instance.PlayLose();
+        }
     }
 }
