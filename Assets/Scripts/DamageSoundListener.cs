@@ -1,10 +1,8 @@
-
 using UnityEngine;
 
 public class DamageSoundListener : MonoBehaviour
 {
     public PlayerHealth health;
-    public AudioSource damageSound;
 
     void OnEnable()
     {
@@ -20,7 +18,7 @@ public class DamageSoundListener : MonoBehaviour
 
     void PlayDamageSound(int currentHealth, int maxHealth)
     {
-        if (damageSound != null)
-            damageSound.Play();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayDamage();
     }
 }

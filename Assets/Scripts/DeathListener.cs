@@ -1,10 +1,10 @@
-
 using UnityEngine;
 
 public class DeathListener : MonoBehaviour
 {
     public PlayerHealth health;
-    public GameObject gameOverScreen;
+    public UIManager uiManager;
+    public UIScreen gameOverScreen;
 
     void OnEnable()
     {
@@ -20,11 +20,10 @@ public class DeathListener : MonoBehaviour
 
     void OnDeath()
     {
-        Debug.Log("Player Died! Game Over.");
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayDeath();
 
-        if (gameOverScreen != null)
-            gameOverScreen.SetActive(true);
-
-        Time.timeScale = 0f;
+        if (uiManager != null && gameOverScreen != null)
+            uiManager.OpenAndClearHistory(gameOverScreen);
     }
 }
