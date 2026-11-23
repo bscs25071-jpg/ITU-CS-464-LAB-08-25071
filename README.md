@@ -2,7 +2,7 @@
 **Roll Number:** BSCS25071  
 **Course:** CS-464 Game Development (Lab 08)  
 You can watch the complete walkthrough of the audio system, loading screen and event system here:  
-[Watch the Lab 08 Demo](PASTE_YOUR_VIDEO_LINK_HERE)
+[Watch the Lab 08 Demo](https://drive.google.com/file/d/1WOXhuvLO6DC2yCzUxiJIuOHIQ07v1eL4/view?usp=sharing)
 
 ## Project Overview
 This project is an extension of our Star Dash game from Lab 07, developed using Unity 6. In this lab, we added an audio system, volume controls, a loading screen, and an event-based system to make the game more interactive and organized.
