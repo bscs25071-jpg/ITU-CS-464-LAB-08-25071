@@ -5,7 +5,7 @@
 
 ## Demo Video
 You can watch the complete walkthrough of the playable Star Dash gameplay, audio system, loading screen, and event system here:  
-[Watch the Lab 08 Demo]
+https://drive.google.com/file/d/1UWhafybizXAHRIu480drES89l7Sgig1Q/view?usp=sharing
 
 ---
 
