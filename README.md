@@ -11,9 +11,6 @@ You can watch the complete walkthrough of the playable Star Dash gameplay, audio
 
 ## Project Overview
 This project is an extension of our **Star Dash** game from Lab 07, developed using Unity. In this lab, we implemented a complete playable 2D level along with an `AudioMixer`-based audio system, persistent volume controls, an asynchronous loading screen, and a decoupled C# event architecture.
-
----
-
 ## Features Implemented
 
 ### 1. Playable Star Dash Gameplay (`StarDashPlayer` & `StarDashItem`)
@@ -76,6 +73,3 @@ This project is an extension of our **Star Dash** game from Lab 07, developed us
 - Reaching `500` score fires the `Won` event and opens the Victory screen (Next Level, Replay, Main Menu).
 - Reaching `0` HP fires the `Died` event and opens the Game Over screen.
 
-2. Open Unity Hub, click **Add → Add project from disk**, and select the cloned folder.
-3. Open the project with Unity 6 (6000.3.24f1).
-4. Open the `Loading` scene (or `SampleScene`) and press **Play**.
